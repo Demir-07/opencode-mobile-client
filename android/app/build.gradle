@@ -133,6 +133,11 @@ android {
         }
     }
     buildTypes {
+        debug {
+            // Distinct applicationId so debug builds can be installed side-by-side
+            // with the production APK without uninstalling it (different signatures)
+            applicationIdSuffix ".debug"
+        }
         release {
             if (releaseSigningReady && releaseStoreFileExists) {
                 signingConfig signingConfigs.release
